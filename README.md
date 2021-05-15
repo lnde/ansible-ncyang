@@ -39,27 +39,27 @@ https://github.com/robshakir/pyangbind > 0.8.1
 In order for ansible to find the `oc_output` Python module we need to add the
 `filter_plugins/` folder to the search path.
 
-    ```
-    $ export PYTHONPATH=`pwd`/filter_plugins
-    ```
+```
+$ export PYTHONPATH=`pwd`/filter_plugins
+```
 
 ### Display NETCONF schemas and download models from hosts
 
-    ```
-    $ ansible-playbook pb-netconf_info.yml
-    ```
+```
+$ ansible-playbook pb-netconf_info.yml
+```
 
 ### Deploy config to IOS XR using OpenConfig
 
-    ```
-    $ ansible-playbook pb-cisco.yml
-    ```
+```
+$ ansible-playbook pb-cisco.yml
+```
 
 ### Using templated XML over NETCONF
 
-    ```
-    $ ansible-playbook pb-juniper.yml
-    ```
+```
+$ ansible-playbook pb-juniper.yml
+```
 
 ## Roadmap
 
