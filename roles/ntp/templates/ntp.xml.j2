@@ -1,0 +1,9 @@
+<system>
+    <ntp>
+{% for server in servers %}
+        <server>
+            <name>{{ server }}</name>
+        </server>
+{% endfor %}
+    </ntp>
+</system>

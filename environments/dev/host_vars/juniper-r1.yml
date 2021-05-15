@@ -1,0 +1,10 @@
+---
+
+# define loopback 0
+interfaces:
+  lo0:
+    inet: 192.0.2.1/32
+    inet6: 2001:db8::1/128
+  lo1:
+    inet: 10.99.0.1/32
+    inet6: 2021::1/128

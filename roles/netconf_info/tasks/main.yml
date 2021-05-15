@@ -1,0 +1,34 @@
+---
+
+- name: get schemas
+  ansible.netcommon.netconf_get:
+    display: pretty
+    filter: |
+      <netconf-state xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring">
+        <schemas/>
+      </netconf-state>
+    lock: never
+  register: output
+
+- name: show schemas
+  debug:
+    var: output.stdout_lines
+
+- name: download yang models from device
+  community.yang.fetch:
+    name: all
+    dir: models/{{ inventory_hostname }}/
+
+# - name: get capabilities
+#   ansible.netcommon.netconf_get:
+#    display: pretty
+#    filter: |
+#      <netconf-state xmlns:ncm="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring">
+#        <capabilities/>
+#      </netconf-state>
+#    lock: never
+#   register: cap
+
+# - name: show capabilities
+#   debug:
+#     var: cap

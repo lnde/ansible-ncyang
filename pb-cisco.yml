@@ -1,0 +1,9 @@
+---
+
+# Example using a simple YAML inventory mapped to a YANG
+# model.
+- hosts: cisco-r1
+  gather_facts: false
+  roles:
+    - name: interfaces
+      tags: interfaces

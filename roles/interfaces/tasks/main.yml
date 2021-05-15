@@ -1,0 +1,22 @@
+---
+
+- name: print interfaces from host_vars
+  ansible.builtin.debug:
+    var: interfaces
+
+- name: transform yaml to openconfig
+  ansible.builtin.set_fact:
+    oc_config: "{{ interfaces|interface2oc }}"
+
+- name: print generated openconfig rpc
+  debug:
+    var: oc_config
+  tags: debug
+
+- name: deploy interfaces using netconf/openconfig
+  ansible.netcommon.netconf_config:
+    datastore: candidate
+    format: xml
+    validate: false
+    commit: false
+    content: "{{ oc_config }}"

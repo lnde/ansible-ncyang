@@ -1,0 +1,9 @@
+---
+
+interfaces:
+  Loopback100:
+    inet: 192.0.2.2/32
+    inet6: 2001:db8::2/128
+  Loopback101:
+    inet: 10.99.0.2/32
+    inet6: 2021::2/128

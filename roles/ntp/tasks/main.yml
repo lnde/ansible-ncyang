@@ -1,0 +1,37 @@
+---
+
+#
+# This role will configure the ntp servers using netconf on a JunOS device.
+# The configuration is templated as an xml and this is really not how you
+# want to generate your netconf rpc, only here for demo purpose.
+#
+- name: generate configuration
+  ansible.builtin.template:
+    src: templates/ntp.xml.j2
+    dest: output/ntp.conf
+  register: ntp_config
+
+- name: check if we can update ntp configuration using template
+  junipernetworks.junos.junos_config:
+    check_commit: true
+    update: replace
+    src: output/ntp.conf
+    src_format: xml
+  timeout: 60
+
+#
+# Use the ansible netcommon netconf module
+#
+# - name: deploy ntp configuration
+#  ansible.netcommon.netconf_config:
+#    content: "{{ lookup('file', 'output/ntp.conf') }}"
+#    default_operation: replace
+#    target: candidate
+#    commit: no
+#    validate: yes
+#  register: ntp_diff
+
+# - name: print diff
+#  debug:
+#    var: ntp_diff
+#  when: ntp_diff.changed

@@ -1,0 +1,8 @@
+---
+
+# Display NETCONF schemas and download models from hosts
+- hosts: all
+  gather_facts: false
+  roles:
+    - name: netconf_info
+      tags: netconf_info

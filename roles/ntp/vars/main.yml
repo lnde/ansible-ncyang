@@ -1,0 +1,15 @@
+---
+
+servers:
+  # sth1.ntp.se
+  - 194.58.202.20
+  # sth2.ntp.se
+  - 194.58.202.148
+  # ntp1.sptime.se
+  - 193.11.166.2
+  # ntp2.sptime.se
+  - 193.11.166.18
+  # ntp3.sptime.se
+  - 193.11.166.36
+  # ntp4.sptime.se
+  - 193.11.166.52

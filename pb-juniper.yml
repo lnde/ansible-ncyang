@@ -1,0 +1,9 @@
+---
+
+# Example using templated xml over netconf to configure
+# ntp servers. This is not how you should use netconf/yang.
+- hosts: juniper-r1
+  gather_facts: false
+  roles:
+    - name: ntp
+      tags: ntp
