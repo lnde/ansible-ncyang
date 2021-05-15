@@ -1,9 +1,12 @@
 # Ansible NETCONF/YANG Example
 
 This collection demonstrates two different ways of using NETCONF/YANG with
-Ansible. One way using "templated XML" and the other using generated Python classes that are built from YANG models.
+Ansible. One way using "templated XML" and the other using generated Python
+classes that are built from YANG models.
 
-Included is a very simple YAML inventory that we'll map onto the `openconfig-interfaces` model and then serialised to XML, which is finally transferred to the device using NETCONF.
+Included is a very simple YAML inventory that we'll map onto the
+`openconfig-interfaces` model and then serialised to XML, which is finally
+transferred to the device using NETCONF.
 
 To transform our simple YAML inventory in this example to OpenConfig we're
 using a custom filter located in `filter_plugins/`.
@@ -27,12 +30,14 @@ https://github.com/robshakir/pyangbind > 0.8.1
 
 ## Using the playbooks
 
-- If you're going to run these playbooks you'll need one Juniper router and one Cisco IOS XR router.
+- If you're going to run these playbooks you'll need one Juniper router and one
+  Cisco IOS XR router.
 - Modify the inventory in `environments/dev/hosts.yml` with their credentials.
 - Modify `environments/dev/host_vars/*.yml`
 - Look at ansible.cfg and make any additional changes as per required for your environment.
 
-In order for ansible to find the `oc_output` Python module we need to add the `filter_plugins/` folder to the search path.
+In order for ansible to find the `oc_output` Python module we need to add the
+`filter_plugins/` folder to the search path.
 
     ```
     $ export PYTHONPATH=`pwd`/filter_plugins
