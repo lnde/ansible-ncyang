@@ -14,7 +14,8 @@ This collection has been tested against following Ansible version: **2.10.2**.
 
 ## External requirements
 
-In order to generate the Python classes in `filter_plugins/oc_output` you'll need a recent version of `pyangbind`.
+In order to generate the Python classes in `filter_plugins/oc_output` you'll
+need `pyang` and a recent version `pyangbind`.
 
 https://github.com/robshakir/pyangbind > 0.8.1
 
