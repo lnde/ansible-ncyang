@@ -55,7 +55,7 @@ $ ansible-playbook pb-netconf_info.yml
 $ ansible-playbook pb-cisco.yml
 ```
 
-### Using templated XML over NETCONF
+### Deploy config as templated XML over NETCONF
 
 ```
 $ ansible-playbook pb-juniper.yml
