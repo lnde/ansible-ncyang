@@ -83,6 +83,8 @@ $ ansible-playbook pb-juniper.yml
 This is provided as an example and is not intended to be maintained or
 developed further.
 
+I might add an example using gNMI, only time will tell.
+
 ## Licensing
 
 Copyright (c) 2021 Andreas Lundin, lunde@dreamhosted.se
