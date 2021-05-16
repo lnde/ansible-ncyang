@@ -17,10 +17,20 @@ This collection has been tested against following Ansible version: **2.10.2**.
 
 ## External requirements
 
+It's possible to run the included playbooks without any network devices and
+you'll see the generated config that would be deployed.
+
 In order to generate the Python classes in `filter_plugins/oc_output` you'll
-need `pyang` and a recent version `pyangbind`.
+need `pyang` and a recent version `pyangbind`. Included in this repository are
+classes generated from OpenConfig dated 2021-05-14. You will need to have the
+same or compatible models on the Cisco IOS XR device you're running this
+playbook against.
 
 https://github.com/robshakir/pyangbind > 0.8.1
+
+Requires the following collections if you intend to run against devices:
+* `community.yang` is required for the `pb-netconf_info` playbook.
+* `junipernetworks.junos` is required for the `pb-juniper` playbook.
 
 ## Included content
 
@@ -30,13 +40,20 @@ https://github.com/robshakir/pyangbind > 0.8.1
 
 ## Using the playbooks
 
+If you're only interested to see the techniques or you don't have any network
+devices. You can still run these as-is and see the generated XML that would be
+deployed using NETCONF.
+
+If you are going to run these against actual devices you'll have to modify the
+following:
+
 - If you're going to run these playbooks you'll need one Juniper router and one
-  Cisco IOS XR router.
+  Cisco IOS XR router, called `juniper-r1` and `cisco-r1` in the inventory.
 - Modify the inventory in `environments/dev/hosts.yml` with their credentials.
 - Modify `environments/dev/host_vars/*.yml`
 - Look at ansible.cfg and make any additional changes as per required for your environment.
 
-In order for ansible to find the `oc_output` Python module we need to add the
+In order for Ansible to find the `oc_output` Python module we need to add the
 `filter_plugins/` folder to the search path.
 
 ```
@@ -63,8 +80,8 @@ $ ansible-playbook pb-juniper.yml
 
 ## Roadmap
 
-This is provided as an example and not intended to be maintained or developed
-further.
+This is provided as an example and is not intended to be maintained or
+developed further.
 
 ## Licensing
 
